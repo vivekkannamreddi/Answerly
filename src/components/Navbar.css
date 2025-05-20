@@ -1,0 +1,31 @@
+.navbar-main-container{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.nav-sections{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 0 50px;
+}
+.middle{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.middle p{
+    padding: 10px;
+    cursor: pointer;
+}
+.left-right{
+    width: 15%;
+    
+}
+.left-right p,h1{
+    cursor: pointer;
+    color: #6d28d2;
+    padding-right: 30px;
+}
