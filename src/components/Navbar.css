@@ -20,6 +20,12 @@
     padding: 10px;
     cursor: pointer;
 }
+.nav-elements{
+    opacity: 0.8;
+}
+.nav-elements:hover{
+    opacity: 1;
+}
 .left-right{
     width: 15%;
     

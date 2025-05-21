@@ -9,15 +9,15 @@ const Navbar = () => {
         </div>
 
         <div className="nav-sections middle">
-            <p>Posts</p>
-            <p>My-doubts</p>
-            <p>Solved</p>
-            <p>Answered</p>
+            <p className='nav-elements'>Posts</p>
+            <p className='nav-elements'>My-doubts</p>
+            <p className='nav-elements'>Solved</p>
+            <p className='nav-elements'>Answered</p>
         </div>
 
         <div className="nav-sections left-right right">
-            <p>Sign Up</p>
-            <p>Log In</p>
+            <p className='nav-elements'>Sign Up</p>
+            <p className='nav-elements'>Log In</p>
         </div>
     </div>
   )
