@@ -30,7 +30,7 @@
     width: 15%;
     
 }
-.left-right p,h1{
+.left-right a,h1{
     cursor: pointer;
     color: #6d28d2;
     padding-right: 30px;
