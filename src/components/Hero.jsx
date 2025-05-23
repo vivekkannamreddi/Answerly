@@ -16,9 +16,11 @@ const Hero = () => {
           math problem or a tough concept, get answers, build streaks, and grow together as a <br />
           <b>learning community</b>.
         </p>
-        <button className='btn' onClick={() => navigate('/signup')}>
-          <b>Get Started..</b>
-        </button>
+        <div className="button">
+            <button className='btn' onClick={() => navigate('/signup')}>
+                <b>Get Started..</b>
+            </button>
+        </div>
       </div>
     </div>
   )
