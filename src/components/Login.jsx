@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './Login.css'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button'; 
+import { useAuth } from '../AuthContext.jsx';
 
 function Login() {
     const { setToken } = useAuth();

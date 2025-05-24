@@ -23,8 +23,9 @@ function App() {
           <Route path='/login' element={<Login/>}/>
           <Route path="/posts" element={<Posts />} />
           <Route path="/about" element={<About />} />
+          <Route path="/create" element={<CreatePost/>} />
         </Routes>
-        <CreatePost/>
+        
       </div>
       </AuthProvider>
   )
