@@ -20,7 +20,7 @@ const Navbar = () => {
         </div>
 
         <div className="nav-sections middle desktop-menu">
-          <p className='nav-elements'>Posts</p>
+          <p className='nav-elements' onClick={() => navigate('/posts')}>Posts</p>
           <p className='nav-elements'>My-doubts</p>
           <p className='nav-elements'>Solved</p>
           <p className='nav-elements'>Answered</p>

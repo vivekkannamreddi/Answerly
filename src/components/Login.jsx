@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button'; 
 
 function Login() {
+    const { setToken } = useAuth();
     const [formData, setFormData] = useState({ email: '', password: '' });
     const navigate = useNavigate();
     const handleChange = (e) => {
@@ -17,6 +18,7 @@ function Login() {
         try {
             const res = await API.post('/auth/login', formData);
             localStorage.setItem('tokenAnswerly', res.data.token);
+            setToken(res.data.token); 
             console.log("Login successful!");
             navigate('/posts');
         } catch (err) {

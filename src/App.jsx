@@ -7,11 +7,14 @@ import About from './components/About'
 import Posts from './pages/posts/Posts'
 import Signup from './components/Signup'
 import Login from './components/Login'
+import CreatePost from './components/CreatePost'
+import { AuthProvider } from './AuthContext'
 
 function App() {
   const [postData, setPostData] = useState([]);
 
   return (
+    <AuthProvider>
       <div className='app'>
         <Navbar />
         <Routes>  
@@ -21,7 +24,9 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <CreatePost/>
       </div>
+      </AuthProvider>
   )
 }
 
