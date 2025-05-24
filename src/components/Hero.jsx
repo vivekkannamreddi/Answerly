@@ -17,7 +17,7 @@ const Hero = () => {
           <b>learning community</b>.
         </p>
         <div className="button">
-            <button className='btn' onClick={() => navigate('/signup')}>
+            <button className='getstartedbtn' onClick={() => navigate('/signup')}>
                 <b>Get Started..</b>
             </button>
         </div>

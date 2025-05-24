@@ -9,6 +9,7 @@ import Signup from './components/Signup'
 import Login from './components/Login'
 import CreatePost from './components/CreatePost'
 import { AuthProvider } from './AuthContext'
+import ShowPost from './components/ShowPost'
 
 function App() {
   const [postData, setPostData] = useState([]);
@@ -24,6 +25,7 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/about" element={<About />} />
           <Route path="/create" element={<CreatePost/>} />
+          <Route path="/showPost/:id" element={<ShowPost/>} />
         </Routes>
         
       </div>

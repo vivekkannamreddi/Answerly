@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './Post.css';
 import API from '../../api.js';
-import { useNavigate } from 'react-router-dom'; // <-- Import this
+import { useNavigate } from 'react-router-dom';
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
-  const navigate = useNavigate(); // <-- Hook to navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     API.get('/auth/posts')
       .then(res => {
-        console.log('Fetched data:', res.data);
         setPosts(res.data);
       })
       .catch(err => {
@@ -22,28 +20,63 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className='mainclass'>
-      <h1>All Posts</h1>
+    <div className="container mt-4">
+      <h1 className="mb-4">All Posts</h1>
 
-      {/* Create Post Button */}
-      <div style={{ textAlign: 'right', marginBottom: '10px' }}>
-        <Fab color="primary" aria-label="add" onClick={() => navigate('/create')} className="create-post-btn">
+      <div className="text-end mb-3">
+        <Fab color="primary" aria-label="add" onClick={() => navigate('/create')}>
           <AddIcon />
         </Fab>
       </div>
 
-      <div className="posts-wrapper">
+      <div className="row">
         {Array.isArray(posts) && posts.map(post => (
-          <div className="post-card" key={post._id}>
-            <h2 className="post-title">{post.title}</h2>
-            <p className="post-desc">{post.description}</p>
-            <div className="post-meta">
-              <span>📚 Subject: {post.subject}</span>
-              <span>🧠 Topic: {post.topic}</span>
-              <span>🔥 Difficulty: {post.difficulty}</span>
-              <span>✍️ Posted By: {post.postedBy?.username || "Anonymous"}</span>
-              <span>💬 Answers: {post.answers.length}</span>
-              <span>🕒 {new Date(post.createdAt).toLocaleString()}</span>
+          <div className="col-12 mb-4" key={post._id}>
+            <div className="card w-100" style={{ height: '200px', overflow: 'hidden' }}>
+              <div className="card-body d-flex flex-column px-3 py-2">
+                <h5 className="card-title mb-2" style={{ fontSize: '1.1rem' }}>{post.title}</h5>
+
+                <p
+                  className="card-text mb-2"
+                  style={{
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    fontSize: '0.9rem'
+                  }}
+                >
+                  {post.description}
+                </p>
+
+                <div className="row flex-grow-1" style={{ fontSize: '0.85rem' }}>
+                  {/* Left Column */}
+                  <div className="col-4 d-flex flex-column justify-content-between">
+                    <p className="mb-1"><strong>📚 Subject:</strong> {post.subject}</p>
+                    <p className="mb-1"><strong>🧠 Topic:</strong> {post.topic}</p>
+                    <p className="mb-1"><strong>🔥 Difficulty:</strong> {post.difficulty}</p>
+                  </div>
+
+                  {/* Middle Column */}
+                  <div className="col-4 d-flex flex-column justify-content-between">
+                    <p className="mb-1"><strong>✍️ Posted By:</strong> {post.postedBy?.username || "Anonymous"}</p>
+                    <p className="mb-1"><strong>💬 Answers:</strong> {post.answers.length}</p>
+                    <p className="mb-1"><strong>🕒 Posted On:</strong> {new Date(post.createdAt).toLocaleString()}</p>
+                  </div>
+
+                  {/* Right Column */}
+                  <div className="col-4 d-flex align-items-end justify-content-end">
+                    <button
+                      type="button"
+                      className="btn btn-outline-primary btn-sm"
+                      onClick={() => navigate(`/showPost/${post._id}`)}
+                    >
+                      View Post
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         ))}
